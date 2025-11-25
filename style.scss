@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right bottom, rgb(26, 25, 25), rgb(30, 29, 29));
+    padding: 2vw;
+    color: #fff;
+
+    section{
+        height: 100%;
+        width: 27vw;
+        background-color: black;
+        margin: auto;
+        border-radius: 1vw;
+
+        .all-reels{
+            height: 100%;
+            width: 100%;
+            border-radius: 1vw;
+            overflow: auto;
+            scroll-snap-type: y mandatory;
+
+            
+            .reel{
+                height: 100%;
+                width: 100%;
+                position: relative;
+                overflow: hidden;
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+                border-radius: 1vw;
+                margin-bottom: 1.5vw;
+
+                video{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;  
+                }
+
+                .bottom{
+                    width: 100%;
+                    padding: 3vw 1.5vw;
+                    background: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.833));
+                    position: absolute;
+                    bottom: 0;
+                    color: #fff;
+
+                    .user{
+                        display: flex;
+                        align-items: center;
+                        gap: 1vw;
+                        margin-bottom: 1.5vw;
+
+                        h4{
+                            font-size: 1.2vw;
+                            font-weight: 500;
+                        }
+
+                        button{
+                            padding: 2px .7vw;
+                            color: #fff;
+                            font-size: 1vw;
+                            background-color: transparent;
+                            border-radius: 2px;
+                            border: 1px solid #fff;
+                        }
+                        img{
+                            height: 2.5vw;
+                            width: 2.5vw;
+                            border-radius: 50%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    h3{
+                        font-weight: 500;
+                        font-size: 1.5vw;
+                    }
+                }
+
+                .right{
+                    width: 35px;
+                    position: absolute;
+                    bottom: 15%;
+                    right: 2%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.3vw;
+                    text-align: center;
+
+                    h4{
+                        cursor: pointer;
+                    }
+                    
+                    #love{
+                        color: red;
+                    }
+
+                    i{
+                        font-size: 2vw;
+                        font-weight: 100;
+                    }
+
+                    h6{
+                        font-size: .8vw;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+
+        .all-reels::-webkit-scrollbar{
+            display: none;
+        }
+    }
+}
