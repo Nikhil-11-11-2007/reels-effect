@@ -1,5 +1,6 @@
 const reels = [
   {
+    ismuted: true,
     username: "tech_swati",
     likeCount: 1200,
     isLiked: false,
@@ -11,6 +12,7 @@ const reels = [
     isFollowed: true
   },
   {
+    ismuted: true,
     username: "coding_with_nikhil",
     likeCount: 5000,
     isLiked: true,
@@ -22,6 +24,7 @@ const reels = [
     isFollowed: false
   },
   {
+    ismuted: true,
     username: "frontend_girl",
     likeCount: 980,
     isLiked: false,
@@ -33,6 +36,7 @@ const reels = [
     isFollowed: true
   },
   {
+    ismuted: true,
     username: "js_master",
     likeCount: 2600,
     isLiked: true,
@@ -44,6 +48,7 @@ const reels = [
     isFollowed: false
   },
   {
+    ismuted: true,
     username: "uiux_vibes",
     likeCount: 1500,
     isLiked: false,
@@ -55,6 +60,7 @@ const reels = [
     isFollowed: true
   },
   {
+    ismuted: true,
     username: "Sheriyans_Coder",
     likeCount: 7200,
     isLiked: true,
@@ -66,6 +72,7 @@ const reels = [
     isFollowed: true
   },
   {
+    ismuted: true,
     username: "daily_dev",
     likeCount: 340,
     isLiked: false,
@@ -77,6 +84,7 @@ const reels = [
     isFollowed: false
   },
   {
+    ismuted: true,
     username: "music_coder",
     likeCount: 1800,
     isLiked: true,
@@ -88,6 +96,7 @@ const reels = [
     isFollowed: true
   },
   {
+    ismuted: true,
     username: "travel_with_js",
     likeCount: 2300,
     isLiked: false,
@@ -99,6 +108,7 @@ const reels = [
     isFollowed: false
   },
   {
+    ismuted: true,
     username: "debug_king",
     likeCount: 4100,
     isLiked: true,
@@ -111,22 +121,27 @@ const reels = [
   }
 ];
 
-let clutter = ""
+let allreels = document.querySelector(".all-reels")
 
-reels.forEach(function(det) {
+function addData() {
+  let clutter = ""
+reels.forEach(function(det, idx) {
     clutter += `<div class="reel">
-                    <video autoplay loop muted src="${det.video}"></video>
+                    <video class="video" autoplay loop ${det.ismuted?'muted':''} src="${det.video}"></video>
+                    <div id="${idx}" class="mute">
+                      ${det.ismuted? '<i class="ri-volume-mute-fill"></i>': '<i class="ri-volume-up-fill"></i>'}
+                    </div>
                     <div class="bottom">
                         <div class="user">
                             <img src="${det.userProfile}" alt="">
                             <h4>${det.username}</h4>
-                            <button>${det.isFollowed?"UnFollow" : "Follow"}</button>
+                            <button id="${idx}" class="follow">${det.isFollowed?"UnFollow" : "Follow"}</button>
                         </div>
                         <h3>${det.caption}</h3>
                     </div>
                     <div class="right">
-                        <div class="like">
-                            <h4 class="like-icon">${det.isLiked?'<i class="ri-heart-3-line"></i>':'<i id="love" class="ri-heart-3-fill"></i>'}</h4>
+                        <div id="${idx}" class="like">
+                            <h4 class="like-icon">${det.isLiked?'<i id="love" class="ri-heart-3-fill"></i>': '<i class="ri-heart-3-line"></i>'}</h4>
                             <h6>${det.likeCount}</h6>
                         </div>
                         <div class="comment">
@@ -142,6 +157,43 @@ reels.forEach(function(det) {
                         </div>
                     </div>
                 </div>`
-    let allreels = document.querySelector(".all-reels")
     allreels.innerHTML = clutter
 })
+}
+
+addData()
+
+function pointerEvents() {
+  allreels.addEventListener("click", function(dets) {
+  if(dets.target.className === "like"){
+    if(!reels[dets.target.id].isLiked){
+    reels[dets.target.id].likeCount++
+    reels[dets.target.id].isLiked = true
+    }else{
+      reels[dets.target.id].likeCount--
+      reels[dets.target.id].isLiked = false
+    }
+    addData()
+  }
+  if(dets.target.className === "follow"){
+    reels[dets.target.id].isFollowed = !reels[dets.target.id].isFollowed
+    addData()
+  }
+  
+  if(dets.target.className === "mute"){
+    reels[dets.target.id].ismuted = !reels[dets.target.id].ismuted
+    addData()
+  }
+  if(dets.target.classList.contains("video")) {
+    let vid = dets.target
+    if(vid.paused){
+      vid.play()
+    }else{
+      vid.pause()
+    }
+  } 
+})
+}
+
+
+pointerEvents()

@@ -11,7 +11,7 @@ html, body {
 }
 
 main {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background: linear-gradient(to right bottom, rgb(26, 25, 25), rgb(30, 29, 29));
   padding: 2vw;
@@ -19,7 +19,7 @@ main {
 }
 main section {
   height: 100%;
-  width: 27vw;
+  width: 400px;
   background-color: black;
   margin: auto;
   border-radius: 1vw;
@@ -47,6 +47,10 @@ main section .all-reels .reel video {
   -o-object-fit: cover;
      object-fit: cover;
 }
+main section .all-reels .reel .video {
+  height: 100%;
+  width: 100%;
+}
 main section .all-reels .reel .bottom {
   width: 100%;
   padding: 3vw 1.5vw;
@@ -62,27 +66,28 @@ main section .all-reels .reel .bottom .user {
   margin-bottom: 1.5vw;
 }
 main section .all-reels .reel .bottom .user h4 {
-  font-size: 1.2vw;
+  font-size: 1rem;
   font-weight: 500;
 }
 main section .all-reels .reel .bottom .user button {
   padding: 2px 0.7vw;
   color: #fff;
-  font-size: 1vw;
+  font-size: 1rem;
   background-color: transparent;
   border-radius: 2px;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 main section .all-reels .reel .bottom .user img {
-  height: 2.5vw;
-  width: 2.5vw;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 main section .all-reels .reel .bottom h3 {
   font-weight: 500;
-  font-size: 1.5vw;
+  font-size: 1.3rem;
 }
 main section .all-reels .reel .right {
   width: 35px;
@@ -93,6 +98,13 @@ main section .all-reels .reel .right {
   flex-direction: column;
   gap: 1.3vw;
   text-align: center;
+  align-items: center;
+}
+main section .all-reels .reel .right .like {
+  cursor: pointer;
+}
+main section .all-reels .reel .right .like h4, main section .all-reels .reel .right .like h6 {
+  pointer-events: none;
 }
 main section .all-reels .reel .right h4 {
   cursor: pointer;
@@ -101,13 +113,41 @@ main section .all-reels .reel .right #love {
   color: red;
 }
 main section .all-reels .reel .right i {
-  font-size: 2vw;
+  font-size: 2rem;
   font-weight: 100;
 }
 main section .all-reels .reel .right h6 {
-  font-size: 0.8vw;
+  font-size: 0.9rem;
   font-weight: 600;
 }
 main section .all-reels::-webkit-scrollbar {
   display: none;
+}
+main .mute {
+  height: 40px;
+  width: 40px;
+  background-color: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  top: 1vh;
+  right: 1vw;
+}
+main .mute i {
+  font-size: 20px;
+  pointer-events: none;
+}
+main .mute:active {
+  scale: 0.96;
+}
+
+@media (max-width: 450px) {
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=style.css.map */
