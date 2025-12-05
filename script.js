@@ -1,11 +1,11 @@
 const reels = [
   {
     ismuted: true,
-    username: "tech_swati",
+    username: "tech_satwik",
     likeCount: 1200,
     isLiked: false,
     commentCount: 45,
-    caption: "Learning JavaScript day by day! 🔥",
+    caption: "Makes  a funny movement every day by day! 🔥",
     video: "./Reels/video1.mp4",
     userProfile: "https://i.pinimg.com/736x/4d/42/36/4d4236f4abffa072f5e844759ed217a8.jpg",
     shareCount: 12,
@@ -13,11 +13,11 @@ const reels = [
   },
   {
     ismuted: true,
-    username: "coding_with_nikhil",
+    username: "Nehal_itz",
     likeCount: 5000,
     isLiked: true,
     commentCount: 120,
-    caption: "Piano project completed! 🎹 Day 55",
+    caption: "How boys and girls treats others",
     video: "./Reels/video2.mp4",
     userProfile: "https://i.pinimg.com/1200x/ca/58/3f/ca583fafc574395096845f5700e3ee31.jpg",
     shareCount: 34,
